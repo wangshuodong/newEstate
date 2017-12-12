@@ -1,6 +1,6 @@
 package com.wangsd.web.model;
 
-import com.wangsd.core.util.JsonUtils;
+import com.wangsd.commons.util.JsonUtils;
 import java.io.Serializable;
 import java.util.Date;
 
