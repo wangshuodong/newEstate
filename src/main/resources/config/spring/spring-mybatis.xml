@@ -37,7 +37,7 @@
         <property name="dataSource" ref="dataSource"/>
         <!-- 自动扫描Mapping.xml文件 -->
         <property name="mapperLocations" value="classpath*:/sqlMapperXml/*.xml"></property>
-        <property name="configLocation" value="classpath:mybatis-plus/mybatis-config.xml"></property>
+        <property name="configLocation" value="classpath:config/mybatis-plus/mybatis-config.xml"></property>
         <property name="typeAliasesPackage" value="com.wangsd.web.model"/>
         <property name="globalConfig" ref="globalConfig"/>
         <property name="plugins">

@@ -43,7 +43,7 @@
         </property>
     </bean>
 
-    <!--spring cache-->
+    <!--config.spring cache-->
     <bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager"
           c:redisOperations-ref="redisTemplate">
         <!-- 默认缓存10分钟 -->

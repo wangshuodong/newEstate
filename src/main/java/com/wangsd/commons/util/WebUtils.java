@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 public class WebUtils extends org.springframework.web.util.WebUtils {
 	/**
 	 * 判断是否ajax请求
-	 * spring ajax 返回含有 ResponseBody 或者 RestController注解
+	 * config.spring ajax 返回含有 ResponseBody 或者 RestController注解
 	 * @param handlerMethod HandlerMethod
 	 * @return 是否ajax请求
 	 */
