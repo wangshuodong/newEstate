@@ -1,10 +1,13 @@
 package com.wangsd.generator;
 
 import com.baomidou.mybatisplus.generator.AutoGenerator;
-import com.baomidou.mybatisplus.generator.InjectionConfig;
-import com.baomidou.mybatisplus.generator.config.*;
+import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
+import com.baomidou.mybatisplus.generator.config.GlobalConfig;
+import com.baomidou.mybatisplus.generator.config.PackageConfig;
+import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.converts.MySqlTypeConvert;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
+import com.baomidou.mybatisplus.generator.config.rules.DbColumnType;
 import com.baomidou.mybatisplus.generator.config.rules.DbType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import com.baomidou.mybatisplus.toolkit.StringUtils;
@@ -14,8 +17,6 @@ import org.springframework.core.io.support.PropertiesLoaderUtils;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 
 /**
@@ -38,8 +39,8 @@ public class MysqlGenerator {
 		Properties props = getProperties();
 		AutoGenerator mpg = new AutoGenerator();
 
-		String outputDir = "/Users/lcm/Desktop/generator/code";
-		final String viewOutputDir = outputDir + "/view/";
+		String outputDir = "C:/Users/Administrator/Desktop/code";
+//		final String viewOutputDir = outputDir + "/view/";
 		
 		// 全局配置
 		GlobalConfig gc = new GlobalConfig();
@@ -49,10 +50,10 @@ public class MysqlGenerator {
 		gc.setEnableCache(false);// XML 二级缓存
 		gc.setBaseResultMap(true);// XML ResultMap
 		gc.setBaseColumnList(false);// XML columList
-		gc.setAuthor("zhixuan.wang");
+		gc.setAuthor("wangsd");
 
 		// 自定义文件命名，注意 %s 会自动填充表实体属性！
-		gc.setMapperName("%sMapper");
+		gc.setMapperName("%sDao");
 		gc.setXmlName("%sMapper");
 		gc.setServiceName("I%sService");
 		gc.setServiceImplName("%sServiceImpl");
@@ -62,7 +63,15 @@ public class MysqlGenerator {
 		// 数据源配置
 		DataSourceConfig dsc = new DataSourceConfig();
 		dsc.setDbType(DbType.MYSQL);
-		dsc.setTypeConvert(new MySqlTypeConvert());
+		dsc.setTypeConvert(new MySqlTypeConvert(){
+			// 自定义数据库表字段类型转换【可选】
+			@Override
+			public DbColumnType processTypeConvert(String fieldType) {
+				System.out.println("转换类型：" + fieldType);
+				// 注意！！processTypeConvert 存在默认类型转换，如果不是你要的效果请自定义返回、非如下直接返回。
+				return super.processTypeConvert(fieldType);
+			}
+		});
 		dsc.setDriverName("com.mysql.jdbc.Driver");
 		dsc.setUsername(props.getProperty("db.master.user"));
 		dsc.setPassword(props.getProperty("db.master.password"));
@@ -73,7 +82,7 @@ public class MysqlGenerator {
 		StrategyConfig strategy = new StrategyConfig();
 		// strategy.setCapitalMode(true);// 全局大写命名
 		// strategy.setDbColumnUnderline(true);//全局下划线命名
-//		strategy.setTablePrefix(new String[] { "bmd_", "mp_" });// 此处可以修改为您的表前缀
+//		strategy.setTablePrefix(new String[] { "tlog_", "tsys_" });// 此处可以修改为您的表前缀
 		strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
 		// strategy.setInclude(new String[] { "user" }); // 需要生成的表
 		// strategy.setExclude(new String[]{"test"}); // 排除生成的表
@@ -100,43 +109,39 @@ public class MysqlGenerator {
 		// 包配置
 		PackageConfig pc = new PackageConfig();
 		pc.setModuleName(null);  //所属模块
-		pc.setParent("com.wangzhixuan"); // 自定义包路径
+		pc.setParent("com.wangsd.web"); // 自定义包路径
 		pc.setController("controller"); // 这里是控制器包名，默认 web
 		pc.setEntity("model");
 		pc.setXml("sqlMapperXml");
 		mpg.setPackageInfo(pc);
 
-		// 注入自定义配置，可以在 VM 中使用 cfg.abc 设置的值
-		InjectionConfig cfg = new InjectionConfig() {
-			@Override
-			public void initMap() {}
-		};
 		// 生成的模版路径，不存在时需要先新建
-		File viewDir = new File(viewOutputDir);
-		if (!viewDir.exists()) {
-			viewDir.mkdirs();
-		}
-		List<FileOutConfig> focList = new ArrayList<FileOutConfig>();
-		focList.add(new FileOutConfig("/templates/add.jsp.vm") {
-			@Override
-			public String outputFile(TableInfo tableInfo) {
-				return getGeneratorViewPath(viewOutputDir, tableInfo, "Add.jsp");
-			}
-		});
-		focList.add(new FileOutConfig("/templates/edit.jsp.vm") {
-			@Override
-			public String outputFile(TableInfo tableInfo) {
-				return getGeneratorViewPath(viewOutputDir, tableInfo, "Edit.jsp");
-			}
-		});
-		focList.add(new FileOutConfig("/templates/list.jsp.vm") {
-			@Override
-			public String outputFile(TableInfo tableInfo) {
-				return getGeneratorViewPath(viewOutputDir, tableInfo, "List.jsp");
-			}
-		});
-		cfg.setFileOutConfigList(focList);
-		mpg.setCfg(cfg);
+//		File viewDir = new File(viewOutputDir);
+//		if (!viewDir.exists()) {
+//			viewDir.mkdirs();
+//		}
+		// 自定义 xxList.jsp 生成
+//		List<FileOutConfig> focList = new ArrayList<FileOutConfig>();
+//		focList.add(new FileOutConfig("/templates/add.jsp.vm") {
+//			@Override
+//			public String outputFile(TableInfo tableInfo) {
+//				return getGeneratorViewPath(viewOutputDir, tableInfo, "Add.jsp");
+//			}
+//		});
+//		focList.add(new FileOutConfig("/templates/edit.jsp.vm") {
+//			@Override
+//			public String outputFile(TableInfo tableInfo) {
+//				return getGeneratorViewPath(viewOutputDir, tableInfo, "Edit.jsp");
+//			}
+//		});
+//		focList.add(new FileOutConfig("/templates/list.jsp.vm") {
+//			@Override
+//			public String outputFile(TableInfo tableInfo) {
+//				return getGeneratorViewPath(viewOutputDir, tableInfo, "List.jsp");
+//			}
+//		});
+//		cfg.setFileOutConfigList(focList);
+//		mpg.setCfg(cfg);
 
 		// 执行生成
 		mpg.execute();

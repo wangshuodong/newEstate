@@ -2,7 +2,7 @@ package com.wangsd.commons.scan;
 
 import com.wangsd.commons.util.StringUtils;
 import com.wangsd.web.model.SysLog;
-import com.wangsd.web.service.SysLogService;
+import com.wangsd.web.service.ISysLogService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
@@ -34,7 +34,7 @@ public class SysLogAspect {
     private static final Logger LOGGER = LogManager.getLogger(SysLogAspect.class);
 
     @Autowired
-    private SysLogService sysLogService;
+    private ISysLogService iSysLogService;
 
     @Pointcut("within(@org.springframework.stereotype.Controller *)")
     public void cutController() {
@@ -80,7 +80,7 @@ public class SysLogAspect {
                         sysLog.setClientIp(request.getRemoteAddr());
                     }
                     LOGGER.info(sysLog.toString());
-                    sysLogService.insert(sysLog);
+                    iSysLogService.insert(sysLog);
                 }
             } catch (Exception e) {
                 LOGGER.error(e.getMessage(), e);

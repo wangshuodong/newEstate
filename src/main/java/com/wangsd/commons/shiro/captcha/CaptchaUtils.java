@@ -1,6 +1,7 @@
 package com.wangsd.commons.shiro.captcha;
 
-import com.wangzhixuan.commons.utils.IOUtils;
+
+import com.wangsd.commons.util.IOUtils;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;

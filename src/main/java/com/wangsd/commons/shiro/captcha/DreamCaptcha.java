@@ -1,7 +1,7 @@
 package com.wangsd.commons.shiro.captcha;
 
-import com.wangzhixuan.commons.utils.StringUtils;
-import com.wangzhixuan.commons.utils.WebUtils;
+import com.wangsd.commons.util.StringUtils;
+import com.wangsd.commons.util.WebUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.shiro.cache.Cache;
