@@ -5,11 +5,11 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 /**
  * <p>
- * 权限表 Mapper 接口
+  * 权限表 Mapper 接口
  * </p>
  *
  * @author wangsd
- * @since 2017-12-13
+ * @since 2017-12-14
  */
 public interface PermissionDao extends BaseMapper<Permission> {
 

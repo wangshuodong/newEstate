@@ -1,7 +1,6 @@
 package com.wangsd.web.model;
 
-import java.io.Serializable;
-
+import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
@@ -14,18 +13,28 @@ import java.io.Serializable;
  * </p>
  *
  * @author wangsd
- * @since 2017-12-13
+ * @since 2017-12-14
  */
 @TableName("role_menu")
 public class RoleMenu extends Model<RoleMenu> {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId("role_id")
+	@TableId(value="id", type= IdType.AUTO)
+	private Integer id;
+	@TableField("role_id")
 	private Integer roleId;
 	@TableField("menu_id")
 	private Integer menuId;
 
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public Integer getRoleId() {
 		return roleId;
@@ -45,14 +54,7 @@ public class RoleMenu extends Model<RoleMenu> {
 
 	@Override
 	protected Serializable pkVal() {
-		return this.roleId;
+		return this.id;
 	}
 
-	@Override
-	public String toString() {
-		return "RoleMenu{" +
-			", roleId=" + roleId +
-			", menuId=" + menuId +
-			"}";
-	}
 }

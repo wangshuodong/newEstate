@@ -9,8 +9,8 @@ import com.baomidou.mybatisplus.service.IService;
  * </p>
  *
  * @author wangsd
- * @since 2017-12-13
+ * @since 2017-12-14
  */
 public interface IRolePermissionService extends IService<RolePermission> {
-
+	
 }

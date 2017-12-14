@@ -2,21 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wangsd.web.mapper.ServiceinfoDao">
 
-    <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.wangsd.web.model.Serviceinfo">
-        <id column="id" property="id" />
-        <result column="code" property="code" />
-        <result column="name" property="name" />
-        <result column="region" property="region" />
-        <result column="contact_people" property="contactPeople" />
-        <result column="contact_phone" property="contactPhone" />
-        <result column="contact_address" property="contactAddress" />
-        <result column="parent_id" property="parentId" />
-        <result column="app_id" property="appId" />
-        <result column="merchant_private_key" property="merchantPrivateKey" />
-        <result column="alipay_public_key" property="alipayPublicKey" />
-        <result column="return_url" property="returnUrl" />
-        <result column="create_time" property="createTime" />
-    </resultMap>
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.wangsd.web.model.Serviceinfo">
+		<id column="id" property="id" />
+		<result column="code" property="code" />
+		<result column="name" property="name" />
+		<result column="region" property="region" />
+		<result column="contact_people" property="contactPeople" />
+		<result column="contact_phone" property="contactPhone" />
+		<result column="contact_address" property="contactAddress" />
+		<result column="parent_id" property="parentId" />
+		<result column="app_id" property="appId" />
+		<result column="merchant_private_key" property="merchantPrivateKey" />
+		<result column="alipay_public_key" property="alipayPublicKey" />
+		<result column="return_url" property="returnUrl" />
+		<result column="create_time" property="createTime" />
+	</resultMap>
 
 </mapper>

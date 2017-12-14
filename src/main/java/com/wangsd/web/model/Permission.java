@@ -1,7 +1,5 @@
 package com.wangsd.web.model;
 
-import java.io.Serializable;
-
 import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
@@ -14,7 +12,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author wangsd
- * @since 2017-12-13
+ * @since 2017-12-14
  */
 public class Permission extends Model<Permission> {
 
@@ -77,13 +75,4 @@ public class Permission extends Model<Permission> {
 		return this.id;
 	}
 
-	@Override
-	public String toString() {
-		return "Permission{" +
-			", id=" + id +
-			", name=" + name +
-			", permissionSign=" + permissionSign +
-			", description=" + description +
-			"}";
-	}
 }

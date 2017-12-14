@@ -12,9 +12,9 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author wangsd
- * @since 2017-12-13
+ * @since 2017-12-14
  */
 @Service
 public class PermissionServiceImpl extends ServiceImpl<PermissionDao, Permission> implements IPermissionService {
-
+	
 }

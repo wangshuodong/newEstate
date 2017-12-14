@@ -1,7 +1,5 @@
 package com.wangsd.web.model;
 
-import java.io.Serializable;
-
 import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
@@ -14,7 +12,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author wangsd
- * @since 2017-12-13
+ * @since 2017-12-14
  */
 public class Menu extends Model<Menu> {
 
@@ -102,16 +100,4 @@ public class Menu extends Model<Menu> {
 		return this.id;
 	}
 
-	@Override
-	public String toString() {
-		return "Menu{" +
-			", id=" + id +
-			", name=" + name +
-			", url=" + url +
-			", iconCls=" + iconCls +
-			", parentId=" + parentId +
-			", sort=" + sort +
-			", enable=" + enable +
-			"}";
-	}
 }

@@ -1,7 +1,5 @@
 package com.wangsd.web.model;
 
-import java.io.Serializable;
-
 import com.baomidou.mybatisplus.enums.IdType;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
@@ -15,7 +13,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author wangsd
- * @since 2017-12-13
+ * @since 2017-12-14
  */
 public class Propertyinfo extends Model<Propertyinfo> {
 
@@ -210,25 +208,4 @@ public class Propertyinfo extends Model<Propertyinfo> {
 		return this.id;
 	}
 
-	@Override
-	public String toString() {
-		return "Propertyinfo{" +
-			", id=" + id +
-			", code=" + code +
-			", name=" + name +
-			", contactPeople=" + contactPeople +
-			", contactPhone=" + contactPhone +
-			", contactAddress=" + contactAddress +
-			", salerTaxNum=" + salerTaxNum +
-			", parentId=" + parentId +
-			", alipayLoginId=" + alipayLoginId +
-			", appId=" + appId +
-			", token=" + token +
-			", alipayDebitNum=" + alipayDebitNum +
-			", weixinDebitNum=" + weixinDebitNum +
-			", weixinChildrenNum=" + weixinChildrenNum +
-			", api=" + api +
-			", createTime=" + createTime +
-			"}";
-	}
 }

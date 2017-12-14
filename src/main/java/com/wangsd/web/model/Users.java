@@ -1,7 +1,5 @@
 package com.wangsd.web.model;
 
-import java.io.Serializable;
-
 import com.baomidou.mybatisplus.enums.IdType;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
@@ -15,7 +13,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author wangsd
- * @since 2017-12-13
+ * @since 2017-12-14
  */
 public class Users extends Model<Users> {
 
@@ -29,6 +27,11 @@ public class Users extends Model<Users> {
 	private String name;
 	private String username;
 	private String password;
+    /**
+     * 密码加密盐
+     */
+	private String salt;
+	private String pwd;
     /**
      * 部门id
      */
@@ -85,6 +88,22 @@ public class Users extends Model<Users> {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getSalt() {
+		return salt;
+	}
+
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
+
+	public String getPwd() {
+		return pwd;
+	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
 	}
 
 	public Integer getParentId() {
@@ -156,21 +175,4 @@ public class Users extends Model<Users> {
 		return this.id;
 	}
 
-	@Override
-	public String toString() {
-		return "Users{" +
-			", id=" + id +
-			", name=" + name +
-			", username=" + username +
-			", password=" + password +
-			", parentId=" + parentId +
-			", parentCode=" + parentCode +
-			", roleId=" + roleId +
-			", phone=" + phone +
-			", email=" + email +
-			", enable=" + enable +
-			", type=" + type +
-			", createTime=" + createTime +
-			"}";
-	}
 }
