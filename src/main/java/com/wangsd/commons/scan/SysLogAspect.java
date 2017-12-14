@@ -1,8 +1,6 @@
 package com.wangsd.commons.scan;
 
 import com.wangsd.commons.util.StringUtils;
-import com.wangsd.web.model.SysLog;
-import com.wangsd.web.service.ISysLogService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
@@ -19,7 +17,6 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
 import java.util.Enumeration;
 
 /**
@@ -34,7 +31,7 @@ public class SysLogAspect {
     private static final Logger LOGGER = LogManager.getLogger(SysLogAspect.class);
 
     @Autowired
-    private ISysLogService iSysLogService;
+//    private ISysLogService iSysLogService;
 
     @Pointcut("within(@org.springframework.stereotype.Controller *)")
     public void cutController() {
@@ -71,16 +68,16 @@ public class SysLogAspect {
                 PrincipalCollection collection = currentUser.getPrincipals();
                 if (null != collection) {
                     String loginName = collection.getPrimaryPrincipal().toString();
-                    SysLog sysLog = new SysLog();
-                    sysLog.setLoginName(loginName);
-                    sysLog.setRoleName(loginName);
-                    sysLog.setOptContent(strMessage);
-                    sysLog.setCreateTime(new Date());
-                    if (request != null) {
-                        sysLog.setClientIp(request.getRemoteAddr());
-                    }
-                    LOGGER.info(sysLog.toString());
-                    iSysLogService.insert(sysLog);
+//                    SysLog sysLog = new SysLog();
+//                    sysLog.setLoginName(loginName);
+//                    sysLog.setRoleName(loginName);
+//                    sysLog.setOptContent(strMessage);
+//                    sysLog.setCreateTime(new Date());
+//                    if (request != null) {
+//                        sysLog.setClientIp(request.getRemoteAddr());
+//                    }
+//                    LOGGER.info(sysLog.toString());
+//                    iSysLogService.insert(sysLog);
                 }
             } catch (Exception e) {
                 LOGGER.error(e.getMessage(), e);

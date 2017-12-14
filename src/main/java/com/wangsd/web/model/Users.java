@@ -56,6 +56,7 @@ public class Users extends Model<Users> {
 	private Integer type;
 	@TableField("create_time")
 	private Date createTime;
+	private String asd;
 
 
 	public Integer getId() {
@@ -168,6 +169,14 @@ public class Users extends Model<Users> {
 
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
+	}
+
+	public String getAsd() {
+		return asd;
+	}
+
+	public void setAsd(String asd) {
+		this.asd = asd;
 	}
 
 	@Override

@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
-import com.wangzhixuan.commons.result.PageInfo;
 import com.wangsd.web.model.Permission;
 import com.wangsd.web.service.IPermissionService;
 import com.wangsd.commons.base.BaseController;

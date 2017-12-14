@@ -18,6 +18,7 @@
 		<result column="enable" property="enable" />
 		<result column="type" property="type" />
 		<result column="create_time" property="createTime" />
+		<result column="asd" property="asd" />
 	</resultMap>
 
 </mapper>

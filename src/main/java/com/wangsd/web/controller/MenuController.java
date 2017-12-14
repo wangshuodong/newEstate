@@ -1,9 +1,11 @@
 package com.wangsd.web.controller;
 
-import javax.validation.Valid;
-
-import java.util.List;
-import java.util.Date;
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
+import com.wangsd.commons.base.BaseController;
+import com.wangsd.commons.entity.PageInfo;
+import com.wangsd.web.model.Menu;
+import com.wangsd.web.service.IMenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,12 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.plugins.Page;
-import com.wangzhixuan.commons.result.PageInfo;
-import com.wangsd.web.model.Menu;
-import com.wangsd.web.service.IMenuService;
-import com.wangsd.commons.base.BaseController;
+
+import javax.validation.Valid;
+import java.util.Date;
 
 /**
  * <p>
@@ -39,7 +38,7 @@ public class MenuController extends BaseController {
     
     @PostMapping("/dataGrid")
     @ResponseBody
-    public PageInfo dataGrid(Menu menu, Integer page, Integer rows, String sort,String order) {
+    public PageInfo dataGrid(Menu menu, Integer page, Integer rows, String sort, String order) {
         PageInfo pageInfo = new PageInfo(page, rows, sort, order);
         EntityWrapper<Menu> ew = new EntityWrapper<Menu>(menu);
         Page<Menu> pages = getPage(pageInfo);
