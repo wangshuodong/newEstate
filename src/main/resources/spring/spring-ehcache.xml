@@ -10,7 +10,7 @@
     
     <!-- 如果有多个ehcacheManager要在bean加上p:shared="true" -->
     <bean id="ehcacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
-        <property name="configLocation" value="classpath:config/mybatis-plus/ehcache.xml"/>
+        <property name="configLocation" value="classpath:mybatis-plus/ehcache.xml"/>
     </bean>
     
     <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">

@@ -36,12 +36,12 @@
     <bean id="sqlSessionFactory" class="com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
 
-        <property name="configLocation" value="classpath:config/mybatis-plus/mybatis-config.xml"></property>
+        <property name="configLocation" value="classpath:mybatis-plus/mybatis-config.xml"></property>
         <!-- 配置实体扫描路径，多个package可以用分号; 逗号, 分隔， 支持通配符*-->
         <!-- com.a.b.entity;com.a.c.entity;com.d.*.entity-->
         <property name="typeAliasesPackage" value="com.wangsd.web.model"/>
         <!-- 自动扫描Mapping.xml文件 -->
-        <property name="mapperLocations" value="classpath*:com/wangsd/web/sqlMapperXml/*.xml"></property>
+        <property name="mapperLocations" value="classpath*:com/wangsd/web/sqlMapperXml/PropertyinfoMapper.xml"></property>
         <property name="globalConfig" ref="globalConfig"/>
         <property name="plugins">
             <array>
