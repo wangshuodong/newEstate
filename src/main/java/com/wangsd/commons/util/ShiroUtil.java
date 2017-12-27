@@ -1,9 +1,6 @@
 package com.wangsd.commons.util;
 
-import com.wangsd.web.model.Users;
-import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.crypto.hash.SimpleHash;
-import org.apache.shiro.subject.Subject;
 
 /**
  * Shiro工具类
@@ -26,32 +23,32 @@ public class ShiroUtil {
 	 * 获取当前Session中的用户
 	 * @return
 	 */
-	public static Users getSessionUser(){
-		
-		Subject subject = SecurityUtils.getSubject();
-		if(subject != null){
-			Object object = subject.getPrincipal();
-			if(object != null){
-				Users sysUser = (Users) object;
-				return sysUser;
-			}
-		}
-		return null;
-	}
-	
-	/**
-	 * 获取当前用户ID
-	 * @return
-	 */
-	public static Integer getSessionUid(){
-
-		Users sysUser = getSessionUser();
-		
-		if(sysUser != null){
-			
-			return sysUser.getId();
-		}
-		
-		return null;
-	}
+//	public static Users getSessionUser(){
+//
+//		Subject subject = SecurityUtils.getSubject();
+//		if(subject != null){
+//			Object object = subject.getPrincipal();
+//			if(object != null){
+//				Users sysUser = (Users) object;
+//				return sysUser;
+//			}
+//		}
+//		return null;
+//	}
+//
+//	/**
+//	 * 获取当前用户ID
+//	 * @return
+//	 */
+//	public static Integer getSessionUid(){
+//
+//		Users sysUser = getSessionUser();
+//
+//		if(sysUser != null){
+//
+//			return sysUser.getId();
+//		}
+//
+//		return null;
+//	}
 }

@@ -81,4 +81,12 @@
           depends-on="lifecycleBeanPostProcessor">
         <property name="proxyTargetClass" value="true"/>
     </bean>
+
+    <!-- 拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**" />
+            <bean class="com.wangsd.commons.interceptor.GlobalInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>
