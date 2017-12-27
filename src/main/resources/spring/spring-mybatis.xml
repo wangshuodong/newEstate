@@ -41,7 +41,7 @@
         <!-- com.a.b.entity;com.a.c.entity;com.d.*.entity-->
         <property name="typeAliasesPackage" value="com.wangsd.web.model"/>
         <!-- 自动扫描Mapping.xml文件 -->
-        <property name="mapperLocations" value="classpath*:com/wangsd/web/sqlMapperXml/PropertyinfoMapper.xml"></property>
+        <property name="mapperLocations" value="classpath*:com/wangsd/web/sqlMapperXml/*.xml"></property>
         <property name="globalConfig" ref="globalConfig"/>
         <property name="plugins">
             <array>
@@ -62,7 +62,7 @@
     <!-- MyBatis 动态扫描  -->
     <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!-- 对Dao 接口动态实现，需要知道接口在哪  -->
-        <property name="basePackage" value="com.wangsd.web.dao"/>
+        <property name="basePackage" value="com.wangsd.web.mapper"/>
     </bean>
 
     <!-- 事务管理 -->

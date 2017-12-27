@@ -2,24 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.wangsd.web.mapper.PropertyinfoDao">
 
-	<!-- 通用查询映射结果 -->
-	<resultMap id="BaseResultMap" type="com.wangsd.web.model.Propertyinfo">
-		<id column="id" property="id" />
-		<result column="code" property="code" />
-		<result column="name" property="name" />
-		<result column="contact_people" property="contactPeople" />
-		<result column="contact_phone" property="contactPhone" />
-		<result column="contact_address" property="contactAddress" />
-		<result column="salerTaxNum" property="salerTaxNum" />
-		<result column="parent_id" property="parentId" />
-		<result column="alipay_login_id" property="alipayLoginId" />
-		<result column="app_id" property="appId" />
-		<result column="token" property="token" />
-		<result column="alipay_debit_num" property="alipayDebitNum" />
-		<result column="weixin_debit_num" property="weixinDebitNum" />
-		<result column="weixin_children_num" property="weixinChildrenNum" />
-		<result column="api" property="api" />
-		<result column="create_time" property="createTime" />
-	</resultMap>
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wangsd.web.model.Propertyinfo">
+        <id column="id" property="id" />
+        <result column="code" property="code" />
+        <result column="name" property="name" />
+        <result column="contact_people" property="contactPeople" />
+        <result column="contact_phone" property="contactPhone" />
+        <result column="contact_address" property="contactAddress" />
+        <result column="salerTaxNum" property="salerTaxNum" />
+        <result column="parent_id" property="parentId" />
+        <result column="alipay_login_id" property="alipayLoginId" />
+        <result column="app_id" property="appId" />
+        <result column="token" property="token" />
+        <result column="alipay_debit_num" property="alipayDebitNum" />
+        <result column="weixin_debit_num" property="weixinDebitNum" />
+        <result column="weixin_children_num" property="weixinChildrenNum" />
+        <result column="api" property="api" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
 
 </mapper>

@@ -8,15 +8,15 @@ import com.wangsd.commons.base.BaseController;
 
 /**
  * <p>
- *  前端控制器
+ * 权限表 前端控制器
  * </p>
  *
  * @author wangsd
  * @since 2017-12-27
  */
 @Controller
-@RequestMapping("/menu")
-public class MenuController extends BaseController {
+@RequestMapping("/permission")
+public class PermissionController extends BaseController {
 
 }
 

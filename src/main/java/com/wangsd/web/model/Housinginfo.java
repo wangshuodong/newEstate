@@ -1,11 +1,12 @@
 package com.wangsd.web.model;
 
-import com.baomidou.mybatisplus.enums.IdType;
-import java.util.Date;
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.enums.IdType;
+
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -13,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author wangsd
- * @since 2017-12-14
+ * @since 2017-12-27
  */
 public class Housinginfo extends Model<Housinginfo> {
 
@@ -224,4 +225,26 @@ public class Housinginfo extends Model<Housinginfo> {
 		return this.id;
 	}
 
+	@Override
+	public String toString() {
+		return "Housinginfo{" +
+			", id=" + id +
+			", communityId=" + communityId +
+			", code=" + code +
+			", name=" + name +
+			", address=" + address +
+			", parentId=" + parentId +
+			", districtCode=" + districtCode +
+			", cityCode=" + cityCode +
+			", provinceCode=" + provinceCode +
+			", communityLocations=" + communityLocations +
+			", associatedPois=" + associatedPois +
+			", hotline=" + hotline +
+			", messageNum=" + messageNum +
+			", status=" + status +
+			", deleteStatus=" + deleteStatus +
+			", createTime=" + createTime +
+			", waterUnit=" + waterUnit +
+			"}";
+	}
 }

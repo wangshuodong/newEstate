@@ -5,11 +5,11 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 /**
  * <p>
-  * 角色与权限关联表 Mapper 接口
+ * 角色与权限关联表 Mapper 接口
  * </p>
  *
  * @author wangsd
- * @since 2017-12-14
+ * @since 2017-12-27
  */
 public interface RolePermissionDao extends BaseMapper<RolePermission> {
 

@@ -154,7 +154,7 @@ public class MysqlGenerator {
 	 */
 	private static Properties getProperties() {
 		// 读取配置文件
-		Resource resource = new ClassPathResource("/config/application.properties");
+		Resource resource = new ClassPathResource("/application.properties");
 		Properties props = new Properties();
 		try {
 			props = PropertiesLoaderUtils.loadProperties(resource);

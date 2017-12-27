@@ -12,9 +12,9 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author wangsd
- * @since 2017-12-14
+ * @since 2017-12-27
  */
 @Service
 public class UsersServiceImpl extends ServiceImpl<UsersDao, Users> implements IUsersService {
-	
+
 }

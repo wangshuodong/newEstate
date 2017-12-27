@@ -1,5 +1,7 @@
 package com.wangsd.web.model;
 
+import java.io.Serializable;
+
 import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableField;
@@ -13,7 +15,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author wangsd
- * @since 2017-12-14
+ * @since 2017-12-27
  */
 @TableName("role_permission")
 public class RolePermission extends Model<RolePermission> {
@@ -63,4 +65,12 @@ public class RolePermission extends Model<RolePermission> {
 		return this.id;
 	}
 
+	@Override
+	public String toString() {
+		return "RolePermission{" +
+			", id=" + id +
+			", roleId=" + roleId +
+			", permissionId=" + permissionId +
+			"}";
+	}
 }

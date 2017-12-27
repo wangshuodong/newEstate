@@ -1,5 +1,7 @@
 package com.wangsd.web.model;
 
+import java.io.Serializable;
+
 import com.baomidou.mybatisplus.enums.IdType;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableId;
@@ -13,7 +15,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author wangsd
- * @since 2017-12-14
+ * @since 2017-12-27
  */
 public class Serviceinfo extends Model<Serviceinfo> {
 
@@ -177,4 +179,22 @@ public class Serviceinfo extends Model<Serviceinfo> {
 		return this.id;
 	}
 
+	@Override
+	public String toString() {
+		return "Serviceinfo{" +
+			", id=" + id +
+			", code=" + code +
+			", name=" + name +
+			", region=" + region +
+			", contactPeople=" + contactPeople +
+			", contactPhone=" + contactPhone +
+			", contactAddress=" + contactAddress +
+			", parentId=" + parentId +
+			", appId=" + appId +
+			", merchantPrivateKey=" + merchantPrivateKey +
+			", alipayPublicKey=" + alipayPublicKey +
+			", returnUrl=" + returnUrl +
+			", createTime=" + createTime +
+			"}";
+	}
 }

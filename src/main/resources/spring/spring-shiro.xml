@@ -68,10 +68,10 @@
                     authc 需要认证
                     user  验证通过或RememberMe登录的都可以
                 -->
-                /captcha.jpg = anon
+                /index.jsp = anon
                 /commons/** = anon
-                /static/** = anon
-                /webhooks = anon
+                /adminLTE/** = anon
+                /layui/** = anon
                 /login = anon
                 /** = user
             </value>
