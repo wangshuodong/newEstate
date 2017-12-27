@@ -1,7 +1,10 @@
 package com.wangsd.web.service;
 
-import com.wangsd.web.model.Menu;
 import com.baomidou.mybatisplus.service.IService;
+import com.wangsd.web.model.Menu;
+import com.wangsd.web.modelCustom.TreeMenu;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +15,8 @@ import com.baomidou.mybatisplus.service.IService;
  * @since 2017-12-27
  */
 public interface IMenuService extends IService<Menu> {
-
+    /**
+     * 获取当前用户的菜单
+     */
+    List<TreeMenu> selectTreeMenuByUserId(Integer uid);
 }
