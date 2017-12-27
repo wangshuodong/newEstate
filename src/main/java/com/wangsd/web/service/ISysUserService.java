@@ -13,4 +13,16 @@ import com.baomidou.mybatisplus.service.IService;
  */
 public interface ISysUserService extends IService<SysUser> {
 
+    /**
+     * 保存用户
+     */
+    void insertUser(SysUser user, Integer[] roleId);
+    /**
+     * 更新用户
+     */
+    void updateUser(SysUser sysUser, Integer[] roleId);
+    /**
+     * 删除用户
+     */
+    void delete(Integer id);
 }
