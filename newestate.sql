@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50709
 File Encoding         : 65001
 
-Date: 2017-12-28 00:22:42
+Date: 2017-12-28 18:17:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -43,19 +43,35 @@ CREATE TABLE `department` (
 DROP TABLE IF EXISTS `sys_menu`;
 CREATE TABLE `sys_menu` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `menuName` varchar(50) NOT NULL COMMENT '菜单名称',
-  `parentId` varchar(50) NOT NULL COMMENT '父级菜单ID',
+  `menuName` varchar(50) DEFAULT NULL COMMENT '菜单名称',
+  `parentId` varchar(50) DEFAULT NULL COMMENT '父级菜单ID',
   `url` varchar(255) DEFAULT NULL COMMENT '连接地址',
   `icon` varchar(50) DEFAULT NULL COMMENT '图标',
   `sort` int(11) DEFAULT '0' COMMENT '排序',
-  `userState` int(2) DEFAULT NULL COMMENT '菜单状态,1-启用,-1禁用',
+  `userState` int(2) DEFAULT '1' COMMENT '菜单状态,1-启用,-1禁用',
   `resource` varchar(50) DEFAULT NULL COMMENT '资源名称',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='菜单表';
+) ENGINE=InnoDB AUTO_INCREMENT=407 DEFAULT CHARSET=utf8 COMMENT='菜单表';
 
 -- ----------------------------
 -- Records of sys_menu
 -- ----------------------------
+INSERT INTO `sys_menu` VALUES ('1', '服务商管理', null, null, 'fa fa-cloud', '0', '1', null);
+INSERT INTO `sys_menu` VALUES ('2', '物业管理', null, null, 'fa fa-snowflake-o', '0', '1', null);
+INSERT INTO `sys_menu` VALUES ('3', '小区管理', null, null, 'fa fa-bank', '0', '1', null);
+INSERT INTO `sys_menu` VALUES ('4', '账单管理', null, null, 'fa fa-bar-chart-o', '0', '1', null);
+INSERT INTO `sys_menu` VALUES ('5', '用户管理', null, null, 'fa fa-user-circle-o', '0', '1', null);
+INSERT INTO `sys_menu` VALUES ('6', '系统设置', null, null, 'fa fa-gears', '0', '1', null);
+INSERT INTO `sys_menu` VALUES ('101', '我的服务商', null, null, null, '0', '1', null);
+INSERT INTO `sys_menu` VALUES ('201', '我的物业', null, null, null, '0', '1', null);
+INSERT INTO `sys_menu` VALUES ('301', '我的小区', null, null, null, '0', '1', null);
+INSERT INTO `sys_menu` VALUES ('302', '房屋信息', null, null, null, '0', '1', null);
+INSERT INTO `sys_menu` VALUES ('401', '我的账单', null, null, null, '0', '1', null);
+INSERT INTO `sys_menu` VALUES ('402', '电子发票', null, null, null, '0', '1', null);
+INSERT INTO `sys_menu` VALUES ('403', '交易中心', null, null, null, '0', '1', null);
+INSERT INTO `sys_menu` VALUES ('501', '用户中心', null, null, null, '0', '1', null);
+INSERT INTO `sys_menu` VALUES ('601', '角色管理', null, null, null, '0', '1', null);
+INSERT INTO `sys_menu` VALUES ('602', '费用类型', null, null, null, '0', '1', null);
 
 -- ----------------------------
 -- Table structure for sys_role
@@ -69,11 +85,12 @@ CREATE TABLE `sys_role` (
   `roleState` int(2) DEFAULT '1' COMMENT '状态,1-启用,-1禁用',
   `createTime` datetime DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='角色表';
 
 -- ----------------------------
 -- Records of sys_role
 -- ----------------------------
+INSERT INTO `sys_role` VALUES ('3', '超级管理员', null, null, '1', '2017-12-28 16:58:50');
 
 -- ----------------------------
 -- Table structure for sys_role_menu
@@ -84,11 +101,27 @@ CREATE TABLE `sys_role_menu` (
   `roleId` int(11) NOT NULL COMMENT '角色主键',
   `menuId` int(11) NOT NULL COMMENT '菜单主键',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色菜单关联表';
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8 COMMENT='角色菜单关联表';
 
 -- ----------------------------
 -- Records of sys_role_menu
 -- ----------------------------
+INSERT INTO `sys_role_menu` VALUES ('33', '3', '1');
+INSERT INTO `sys_role_menu` VALUES ('34', '3', '2');
+INSERT INTO `sys_role_menu` VALUES ('35', '3', '3');
+INSERT INTO `sys_role_menu` VALUES ('36', '3', '4');
+INSERT INTO `sys_role_menu` VALUES ('37', '3', '5');
+INSERT INTO `sys_role_menu` VALUES ('38', '3', '6');
+INSERT INTO `sys_role_menu` VALUES ('39', '3', '101');
+INSERT INTO `sys_role_menu` VALUES ('40', '3', '201');
+INSERT INTO `sys_role_menu` VALUES ('41', '3', '301');
+INSERT INTO `sys_role_menu` VALUES ('42', '3', '302');
+INSERT INTO `sys_role_menu` VALUES ('43', '3', '401');
+INSERT INTO `sys_role_menu` VALUES ('44', '3', '402');
+INSERT INTO `sys_role_menu` VALUES ('45', '3', '403');
+INSERT INTO `sys_role_menu` VALUES ('46', '3', '501');
+INSERT INTO `sys_role_menu` VALUES ('47', '3', '601');
+INSERT INTO `sys_role_menu` VALUES ('48', '3', '602');
 
 -- ----------------------------
 -- Table structure for sys_user
@@ -110,23 +143,25 @@ CREATE TABLE `sys_user` (
   `userImg` varchar(300) DEFAULT 'http://news.mydrivers.com/Img/20110518/04481549.png' COMMENT '头像',
   `createTime` datetime DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='用户表';
 
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
+INSERT INTO `sys_user` VALUES ('3', 'admin', null, '54ea56e73a5aa92e3190d63f5d16b1f7', '123456', '1', null, null, null, null, '45f08510-cc46-41db-8b62-2b974b6408e6', null, 'http://news.mydrivers.com/Img/20110518/04481549.png', '2017-12-28 16:58:50');
 
 -- ----------------------------
 -- Table structure for sys_user_role
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user_role`;
 CREATE TABLE `sys_user_role` (
-  `Id` int(11) NOT NULL COMMENT '主键',
+  `Id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `userId` int(11) NOT NULL COMMENT '用户主键',
   `roleId` int(11) NOT NULL COMMENT '角色主键',
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户角色关联表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='用户角色关联表';
 
 -- ----------------------------
 -- Records of sys_user_role
 -- ----------------------------
+INSERT INTO `sys_user_role` VALUES ('2', '3', '3');

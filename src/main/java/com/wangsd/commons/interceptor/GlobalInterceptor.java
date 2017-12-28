@@ -1,7 +1,7 @@
 package com.wangsd.commons.interceptor;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.wangsd.commons.util.SpringUtil;
+import com.wangsd.commons.scan.SpringUtils;
 import com.wangsd.web.model.SysMenu;
 import com.wangsd.web.service.ISysMenuService;
 import org.springframework.web.method.HandlerMethod;
@@ -50,8 +50,8 @@ public class GlobalInterceptor extends HandlerInterceptorAdapter {
 			 */
 //			List<TreeMenu> treeMenus = SpringUtil.getBean(ISysMenuService.class).selectTreeMenuByUserId(1);
 //			request.setAttribute("treeMenus", treeMenus);
-			List<Object> list = SpringUtil.getBean(ISysMenuService.class).selectObjs(new EntityWrapper<SysMenu>().setSqlSelect("id"));
-			
+			List<Object> list = SpringUtils.getBean(ISysMenuService.class).selectObjs(new EntityWrapper<SysMenu>().setSqlSelect("id"));
+			System.out.println("----------");
 		}
 
 		/**

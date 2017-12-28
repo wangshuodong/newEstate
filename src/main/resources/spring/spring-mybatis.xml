@@ -56,7 +56,8 @@
     <!-- MP 全局配置 -->
     <bean id="globalConfig" class="com.baomidou.mybatisplus.entity.GlobalConfiguration">
         <property name="idType" value="0"/>
-        <property name="dbColumnUnderline" value="true"/>
+        <!-- 全局表为下划线命名设置 true -->
+        <!--<property name="dbColumnUnderline" value="true"/>-->
     </bean>
 
     <!-- MyBatis 动态扫描  -->

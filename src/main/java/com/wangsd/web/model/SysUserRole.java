@@ -1,9 +1,10 @@
 package com.wangsd.web.model;
 
-import java.io.Serializable;
-
 import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
+
 import java.io.Serializable;
 
 /**
@@ -22,6 +23,7 @@ public class SysUserRole extends Model<SysUserRole> {
     /**
      * 主键
      */
+	@TableId(value="id", type= IdType.AUTO)
 	private Integer Id;
     /**
      * 用户主键

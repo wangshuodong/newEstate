@@ -2,7 +2,6 @@ package com.wangsd.web.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-import com.wangsd.commons.util.ShiroUtil;
 import com.wangsd.web.mapper.SysUserDao;
 import com.wangsd.web.mapper.SysUserRoleDao;
 import com.wangsd.web.model.SysUser;
@@ -34,7 +33,6 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
     public void insertUser(SysUser user, Integer[] roleIds) {
         // TODO Auto-generated method stub
         user.setCreateTime(new Date());
-        user.setPassword(ShiroUtil.md51024Pwd(user.getPassword(), user.getUserName()));
         //保存用户
         userMapper.insert(user);
         //绑定角色
