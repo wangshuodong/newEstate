@@ -1,10 +1,15 @@
 package com.wangsd.commons.interceptor;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.wangsd.commons.util.SpringUtil;
+import com.wangsd.web.model.SysMenu;
+import com.wangsd.web.service.ISysMenuService;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * 全局拦截器
@@ -40,11 +45,12 @@ public class GlobalInterceptor extends HandlerInterceptorAdapter {
 //			if (StringUtils.isNotBlank(cur)) {
 //				request.getSession().setAttribute("cur", cur);
 //			}
-//			/**
-//			 * 获取当前用户的菜单
-//			 */
-//			List<TreeMenu> treeMenus = SpringUtil.getBean(IMenuService.class).selectTreeMenuByUserId(me.getId());
+			/**
+			 * 获取当前用户的菜单
+			 */
+//			List<TreeMenu> treeMenus = SpringUtil.getBean(ISysMenuService.class).selectTreeMenuByUserId(1);
 //			request.setAttribute("treeMenus", treeMenus);
+			List<Object> list = SpringUtil.getBean(ISysMenuService.class).selectObjs(new EntityWrapper<SysMenu>().setSqlSelect("id"));
 			
 		}
 

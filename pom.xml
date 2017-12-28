@@ -227,15 +227,7 @@
     </dependencies>
 
     <build>
-        <finalName>shiro</finalName>
-        <resources>
-            <resource>
-                <directory>src/main/resources/config</directory>
-            </resource>
-            <resource>
-                <directory>src/main/resources/log4j/${profiles.active}</directory>
-            </resource>
-        </resources>
+        <finalName>newEstate</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -281,29 +273,27 @@
                 </configuration>
             </plugin>
         </plugins>
-    </build>
 
-    <profiles>
-        <!-- 默认激活 dev 开发环境 -->
-        <!-- 线上使用 mvn 打包添加 -Pproduction 变量 -->
-        <profile>
-            <!-- 本地开发环境 -->
-            <id>development</id>
-            <properties>
-                <profiles.active>dev</profiles.active>
-            </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-        </profile>
-        <profile>
-            <!-- 生产环境 -->
-            <id>production</id>
-            <properties>
-                <profiles.active>production</profiles.active>
-            </properties>
-        </profile>
-    </profiles>
+        <!--配置Maven 对resource文件 过滤 -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
 
     <!-- 使用aliyun镜像 -->
     <repositories>

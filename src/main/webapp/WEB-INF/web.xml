@@ -80,16 +80,16 @@
     </servlet-mapping>
 
     <!-- druid监控 -->
-    <servlet>
+    <!--<servlet>
         <servlet-name>DruidStatView</servlet-name>
         <servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
         <init-param>
-            <!-- 用户名 -->
+            &lt;!&ndash; 用户名 &ndash;&gt;
             <param-name>loginUsername</param-name>
             <param-value>druid</param-value>
         </init-param>
         <init-param>
-            <!-- 密码 -->
+            &lt;!&ndash; 密码 &ndash;&gt;
             <param-name>loginPassword</param-name>
             <param-value>dream</param-value>
         </init-param>
@@ -97,7 +97,7 @@
     <servlet-mapping>
         <servlet-name>DruidStatView</servlet-name>
         <url-pattern>/druid/*</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
 
     <!-- 首页 -->
     <welcome-file-list>

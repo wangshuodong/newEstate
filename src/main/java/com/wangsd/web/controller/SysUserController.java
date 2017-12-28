@@ -1,10 +1,14 @@
 package com.wangsd.web.controller;
 
 
+import com.wangsd.commons.base.BaseController;
+import com.wangsd.web.model.SysUser;
+import com.wangsd.web.service.ISysUserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import org.springframework.stereotype.Controller;
-import com.wangsd.commons.base.BaseController;
+import java.util.List;
 
 /**
  * <p>
@@ -17,6 +21,15 @@ import com.wangsd.commons.base.BaseController;
 @Controller
 @RequestMapping("/sysUser")
 public class SysUserController extends BaseController {
+
+    @Autowired
+    ISysUserService iSysUserService;
+
+    @RequestMapping("/list")
+    public void list() {
+        List<SysUser> list = iSysUserService.selectList(null);
+        System.out.println("----------");
+    }
 
 }
 
