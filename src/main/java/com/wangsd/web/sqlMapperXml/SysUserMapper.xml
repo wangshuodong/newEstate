@@ -15,6 +15,7 @@
         <result column="phone" property="phone" />
         <result column="email" property="email" />
         <result column="salt" property="salt" />
+        <result column="roleId" property="roleId" />
         <result column="userDesc" property="userDesc" />
         <result column="userImg" property="userImg" />
         <result column="createTime" property="createTime" />

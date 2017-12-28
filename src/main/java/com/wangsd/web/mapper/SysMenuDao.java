@@ -1,7 +1,11 @@
 package com.wangsd.web.mapper;
 
-import com.wangsd.web.model.SysMenu;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.wangsd.web.model.SysMenu;
+import com.wangsd.web.modelCustom.MenuCustom;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +17,10 @@ import com.baomidou.mybatisplus.mapper.BaseMapper;
  */
 public interface SysMenuDao extends BaseMapper<SysMenu> {
 
+    /**
+     * 查询登录用户左侧菜单树
+     * @param roleId
+     * @return
+     */
+    List<MenuCustom> selectMenuCustomByRoleId(@Param("roleId") Integer roleId);
 }

@@ -10,8 +10,54 @@
         <result column="url" property="url" />
         <result column="icon" property="icon" />
         <result column="sort" property="sort" />
-        <result column="userState" property="userState" />
+        <result column="roleState" property="roleState" />
         <result column="resource" property="resource" />
     </resultMap>
+
+    <resultMap id="menuCustomReturn" type="com.wangsd.web.modelCustom.MenuCustom" extends="BaseResultMap">
+        <collection property="sonMenu" ofType="com.wangsd.web.model.SysMenu">
+            <id column="sonId" property="id"/>
+            <result column="sonName" property="menuName"/>
+            <result column="sonUrl" property="url"/>
+            <result column="sonIcon" property="icon"/>
+            <result column="sonParentId" property="parentId"/>
+        </collection>
+    </resultMap>
+
+
+    <select id="selectMenuCustomByRoleId" resultMap="menuCustomReturn">
+        SELECT
+			parent.*, son.id AS sonId,
+			son.menuName AS sonName,
+			son.icon AS sonIcon,
+			son.url AS sonUrl,
+			son.parentId AS sonParentId,
+			son.sort
+		FROM
+			(
+				SELECT
+					m.*
+				FROM
+					sys_menu m,
+					sys_role_menu r
+				WHERE
+					m.id = r.menuId
+				AND r.roleId = #{roleId}
+				AND m.roleState = 1
+				AND m.parentId IS NULL
+			) parent
+		LEFT JOIN (
+			SELECT
+				m.*
+			FROM
+				sys_menu m,
+				sys_role_menu r
+			WHERE
+				m.id = r.menuId
+			AND r.roleId = #{roleId}
+			AND m.roleState = 1
+			AND m.parentId IS NOT NULL
+		) son ON son.parentId = parent.id ORDER BY son.sort
+    </select>
 
 </mapper>

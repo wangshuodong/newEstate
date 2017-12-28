@@ -1,11 +1,10 @@
 package com.wangsd.web.model;
 
-import java.io.Serializable;
-
-import com.baomidou.mybatisplus.enums.IdType;
-import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
+
 import java.io.Serializable;
 
 /**
@@ -14,7 +13,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author wangsd
- * @since 2017-12-27
+ * @since 2017-12-29
  */
 @TableName("sys_menu")
 public class SysMenu extends Model<SysMenu> {
@@ -49,7 +48,7 @@ public class SysMenu extends Model<SysMenu> {
     /**
      * 菜单状态,1-启用,-1禁用
      */
-	private Integer userState;
+	private Integer roleState;
     /**
      * 资源名称
      */
@@ -104,12 +103,12 @@ public class SysMenu extends Model<SysMenu> {
 		this.sort = sort;
 	}
 
-	public Integer getUserState() {
-		return userState;
+	public Integer getRoleState() {
+		return roleState;
 	}
 
-	public void setUserState(Integer userState) {
-		this.userState = userState;
+	public void setRoleState(Integer roleState) {
+		this.roleState = roleState;
 	}
 
 	public String getResource() {
@@ -134,7 +133,7 @@ public class SysMenu extends Model<SysMenu> {
 			", url=" + url +
 			", icon=" + icon +
 			", sort=" + sort +
-			", userState=" + userState +
+			", roleState=" + roleState +
 			", resource=" + resource +
 			"}";
 	}

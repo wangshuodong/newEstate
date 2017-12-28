@@ -1,13 +1,12 @@
 package com.wangsd.web.model;
 
-import java.io.Serializable;
-
-import com.baomidou.mybatisplus.enums.IdType;
-import java.util.Date;
-import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
+
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -15,7 +14,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author wangsd
- * @since 2017-12-27
+ * @since 2017-12-28
  */
 @TableName("sys_user")
 public class SysUser extends Model<SysUser> {
@@ -64,6 +63,10 @@ public class SysUser extends Model<SysUser> {
      * 密码加密盐
      */
 	private String salt;
+    /**
+     * 角色ID
+     */
+	private Integer roleId;
     /**
      * 描述
      */
@@ -166,6 +169,14 @@ public class SysUser extends Model<SysUser> {
 		this.salt = salt;
 	}
 
+	public Integer getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(Integer roleId) {
+		this.roleId = roleId;
+	}
+
 	public String getUserDesc() {
 		return userDesc;
 	}
@@ -209,6 +220,7 @@ public class SysUser extends Model<SysUser> {
 			", phone=" + phone +
 			", email=" + email +
 			", salt=" + salt +
+			", roleId=" + roleId +
 			", userDesc=" + userDesc +
 			", userImg=" + userImg +
 			", createTime=" + createTime +

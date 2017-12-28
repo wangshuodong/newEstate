@@ -1,7 +1,10 @@
 package com.wangsd.web.service;
 
-import com.wangsd.web.model.SysMenu;
 import com.baomidou.mybatisplus.service.IService;
+import com.wangsd.web.model.SysMenu;
+import com.wangsd.web.modelCustom.MenuCustom;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,10 @@ import com.baomidou.mybatisplus.service.IService;
  */
 public interface ISysMenuService extends IService<SysMenu> {
 
+    /**
+     * 查询登录用户左侧菜单树
+     * @param roleId
+     * @return
+     */
+    public List<MenuCustom> selectMenuCustomByRoleId(Integer roleId);
 }
