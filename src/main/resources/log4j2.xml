@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- log4j2使用说明（create By SeanXiao    ）：
+使用方式如下：
+private static final Logger logger = LogManager.getLogger(实际类名.class.getName());
+trace<debug<info<warn<error<fatal
+ -->
 <configuration status="off">
-    <!--<Properties>
-        <Property name="logdir">${sys:catalina.base}/logs</Property>
-    </Properties>-->
+    <Properties>
+        <Property name="logdir">./logs</Property>
+    </Properties>
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
             <ThresholdFilter level="trace" onMatch="ACCEPT" onMismatch="DENY" />
             <PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %level [%file] - %msg%n" />
         </Console>
         <RollingFile name="RollingFile"
-            fileName="${logdir}/shiro.log"
-            filePattern="${logdir}/shiro.%d{yyyy-MM-dd}.log">
+            fileName="${logdir}/file.log"
+            filePattern="${logdir}/file.%d{yyyy-MM-dd}.log">
             <PatternLayout pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %level [%C{36}.%M] - %msg%n" />
             <Filters>
                 <ThresholdFilter level="error" onMatch="DENY" onMismatch="NEUTRAL" />
@@ -49,17 +54,18 @@
         <logger name="org.springframework" level="INFO"/>
         <logger name="org.springframework.context" level="WARN"/>
         <logger name="org.springframework.beans" level="WARN"/>
-        <logger name="com.baomidou.mybatisplus" level="DEBUG"/>
+        <logger name="com.baomidou.mybatisplus" level="INFO"/>
         <logger name="org.apache.ibatis.io" level="INFO"/>
         <logger name="org.apache.velocity" level="INFO"/>
         <logger name="org.hibernate.validator" level="INFO"/>
         <!-- cache INFO -->
         <logger name="net.sf.ehcache" level="INFO"/>
         <logger name="org.springframework.cache" level="INFO"/>
-        <logger name="com.wangsd.commons.shiro.cache" level="INFO"/>
-        <!-- 业务日志 -->
-        <Logger name="com.wangsd" level="info" />
-        <Root level="WARN" additivity="false">
+        <logger name="com.wangzhixuan.commons.shiro.cache" level="INFO"/>
+
+        <!-- 业务debug日志 -->
+        <logger name="com.wangzhixuan" level="DEBUG"/>
+        <Root level="DEBUG" additivity="false">
             <AppenderRef ref="Console" />
             <AppenderRef ref="RollingFile" />
             <AppenderRef ref="RollingFileError" />
